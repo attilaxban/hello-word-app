@@ -27,7 +27,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: 471112941258.dkr.ecr.eu-central-1.amazonaws.com
-          ECR_REPOSITORY: hello-word-app
+          ECR_REPOSITORY: hello-world-app
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
