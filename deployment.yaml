@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-app
+  labels:
+    app: hello-world-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-app
+  template:
+    metadata:
+      labels:
+        app: hello-world-app
+    spec:
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: docker-secret
+      containers:
+        - name: hello-world-app
+          image: 471112941258.dkr.ecr.eu-central-1.amazonaws.com/hello-world-app:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 250m
+              memory: 200Mi
+            limits:
+              cpu: 500m
+              memory: 500Mi
+          ports:
+            - containerPort: 80
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-app
+  namespace: default
+spec:
+  selector:
+    app: hello-world-app
+  type: LoadBalancer
+  ports:
+    - name: hello-world-app
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30005
+---
+
