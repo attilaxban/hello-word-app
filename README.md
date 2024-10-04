@@ -7,7 +7,7 @@ This project is a simple "Hello World" web application designed to demonstrate c
 ## Project Structure
 
 - `Dockerfile`: Defines the steps to build a Docker image for the application.
-- `k8s/deployment.yaml`: Kubernetes deployment configuration for the EKS cluster.
+- `deployment.yaml`: Kubernetes deployment configuration for the EKS cluster.
 - `.github/workflows/main.yaml`: GitHub Actions workflow for CI/CD, which builds the Docker image, pushes it to ECR, and restarts the app in the EKS cluster.
 - `terraform/`: Terraform configuration files to provision the EKS cluster and associated resources.
 
@@ -32,7 +32,7 @@ This project is a simple "Hello World" web application designed to demonstrate c
    - After the image is uploaded, the workflow restarts the Kubernetes pod running on the EKS cluster to ensure the latest image is deployed.
 
 5. **Terraform**: 
-   - The `terraform/` directory contains the Terraform scripts to provision the EKS cluster, IAM roles, and other required AWS resources.
+   - The `terraform/` directory contains the Terraform scripts to provision the EKS cluster and other required AWS resources.
    - After running the Terraform script, your infrastructure will be ready to deploy the app.
 
 ## CI/CD Process
