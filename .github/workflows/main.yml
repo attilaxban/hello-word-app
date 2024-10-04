@@ -43,11 +43,12 @@ jobs:
           
       - name: Install kubectl
         run: |
-          if ! kubectl version; then
+          if ! kubectl version --client; then
           sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
           sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
           fi
-          
+        
+
       - name: Update kubeconfig for EKS
         run: |
           aws eks update-kubeconfig --name my-eks --region eu-central-1
