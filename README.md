@@ -45,5 +45,25 @@ The CI/CD pipeline is automated using GitHub Actions and follows this process:
 4. **EKS Update**: The Kubernetes pod in the EKS cluster is restarted with the new Docker image to ensure the latest version of the app is deployed.
 
 ## Setup Instructions
+***Store your credentials  (AWS credentials and ECR registry) in github secrets***
 
-### 1. Reach the app here: ***http://adb6dcc2de98c4956be3fd2b885b24d2-692612032.eu-central-1.elb.amazonaws.com/***
+## Create an ECR on AWS management console
+## Create infrastructure (configure with your own AWS credentials at main.tf)
+
+   ***sh'''
+      cd terraform
+      terraform init
+      terraform plan
+      terraform apply
+   '''***
+
+## Modify main.yaml with your credentials
+
+## Setup EKS
+1. **Create your own secret.yaml (use secret.sample.yaml)**
+2. **Use your own ECR in deployment for building image**
+3. **Login to EKS with:** ***aws eks update-kubeconfig --region region-code --name my-cluster***
+4. ***sh '''
+   kubectl apply -f secret.yaml
+   kubecrl apply -f deployment.yaml
+'''***
