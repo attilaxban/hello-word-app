@@ -5,7 +5,7 @@ describe('1. Test content of the element', function() {
   let dom, document;
 
   before(function() {
-    dom = new JSDOM('<!DOCTYPE html><div id="root"><h1>Hello World!Test</h1></div>');
+    dom = new JSDOM('<!DOCTYPE html><div id="root"><h1>Hello World!</h1></div>');
     document = dom.window.document;
   });
 
