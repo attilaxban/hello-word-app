@@ -30,6 +30,11 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - name: Delete previous image
+        run: |
+          aws ecr batch-delete-image --repository-name hello-world-app \--image-ids imageTag=latest
+        
+
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{secrets.ECR_REGISTRY}}.dkr.ecr.eu-central-1.amazonaws.com
