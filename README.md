@@ -44,6 +44,5 @@ The CI/CD pipeline is automated using GitHub Actions and follows this process:
 3. **ECR Push**: The Docker image is pushed to the Amazon ECR repository.
 4. **EKS Update**: The Kubernetes pod in the EKS cluster is restarted with the new Docker image to ensure the latest version of the app is deployed.
 
-## Setup Instructions
 
-### 1. Reach the app here: ***http://adb6dcc2de98c4956be3fd2b885b24d2-692612032.eu-central-1.elb.amazonaws.com/***
+### Reach the app here: ***http://adb6dcc2de98c4956be3fd2b885b24d2-692612032.eu-central-1.elb.amazonaws.com/***
