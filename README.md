@@ -65,5 +65,5 @@ The CI/CD pipeline is automated using GitHub Actions and follows this process:
 3. **Login to EKS with:** ***aws eks update-kubeconfig --region region-code --name my-cluster***
 4. ***sh '''
    kubectl apply -f secret.yaml
-   kubecrl apply -f deployment.yaml
+   kubectl apply -f deployment.yaml
 '''***
